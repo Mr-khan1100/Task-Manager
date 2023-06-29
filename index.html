@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container left-container"  >
+        <h1>Task Planner</h1>
+
+        <form id="form">
+            <div class="form-container">
+                <label for="taskInput">Plan:</label>
+                <input type="text" id="taskInput" placeholder="Add new task" > 
+                <span class="error" id="taskInput_error"></span>
+                <label for="startDateInput">Start Date:</label>
+                <input type="date" id="startDateInput" placeholder="Start Date">
+                <span class="error" id="startdate_error"></span>
+                <label for="endDateInput">End Date:</label>
+                <input type="date" id="endDateInput" placeholder="End Date">
+                <span class="error" id="enddate_error"></span>
+                <label for="statusInput">Status:</label>
+                <select name="Status" id="selectStatus">
+                    <option  value=""disabled selected hidden>Select </option>
+                    <option id="In-Progress" value="In-Progress">In-Progress</option>
+                    <option id="Pending" value="Pending">Pending</option>
+                    <option id="Completed" value="Completed">Completed</option>
+                    <option id="Due_Passed" value="Due_Passed">Due Passed</option>
+                </select><br>
+                <span class="error" id="status_error"></span><br>
+                <button type="submit" >Add Task</button>
+            </div>
+        </form>
+    </div>
+    <div class="right-container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search tasks" >
+        </div>
+        <table id="taskList" class="hidden">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- Task items will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <div id="popupContainer" class="popup-container">
+        <div class="popup-content">
+            <h2>Edit Task</h2>
+            <form id="editForm">
+            <!-- Fields and buttons for editing task -->
+            <label for="editTaskInput">Plan:</label>
+            <input type="text" id="editTaskInput" placeholder="Edit task name">
+            <span id="editTaskInput_error"></span>
+            <label for="editStartDate">Start Date:</label>
+            <input type="date" id="editStartDate" placeholder="Edit Start Date">
+            <span id="editStartDate_error"></span>
+            <label for="editEndDate">End Date:</label>
+            <input type="date" id="editEndDate" placeholder="Edit End  Date">
+            <span id="editEndDate_error'"></span>
+            <label for="editSelectStatus">Status:</label>
+                <select name="Status" id="editSelectStatus">
+                    <option value=""disabled selected hidden>Select </option>
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Due_Passed">Due_Passed</option>
+                </select><br>
+                <span id="editSelectStatus_error"></span>
+            <!-- Add other fields and buttons for editing here -->
+        
+            <!-- Buttons for update and cancel -->
+            <div class="popup-buttons">
+                <button onclick="updateRecord()" >Update</button>
+                <button type="button" onclick="cancelEdit()">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
+</html>
